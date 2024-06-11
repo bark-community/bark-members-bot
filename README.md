@@ -1,4 +1,4 @@
-# BARK Bot Payments API
+# BARK Bot | Telegram Payments API
 Proof of Concept
 
 Welcome to the BARK Bot Payments API documentation! This API provides a seamless solution for conducting financial transactions within the Telegram messaging application. By integrating the power of the Solana blockchain and traditional payment gateways, the BARK Bot Payments API offers users a convenient and secure platform for purchasing, selling, and swapping BARK Tokens. This document will guide you through the features, architecture, and usage of the API, ensuring you have all the information needed to leverage its capabilities effectively.
