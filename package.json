@@ -8,5 +8,8 @@
   },
   "keywords": [],
   "author": "BARK Protocol",
-  "license": "MIT"
+  "license": "MIT",
+  "dependencies": {
+    "dotenv": "^16.4.5"
+  }
 }

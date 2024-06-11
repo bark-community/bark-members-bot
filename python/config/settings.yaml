@@ -1,0 +1,3 @@
+# Configuration settings
+telegram:
+  token: 'BARK_TELEGRAM_BOT_TOKEN'
