@@ -1,4 +1,5 @@
 # BARK Bot Payments API
+Proof of Concept
 
 Welcome to the BARK Bot Payments API documentation! This API provides a seamless solution for conducting financial transactions within the Telegram messaging application. By integrating the power of the Solana blockchain and traditional payment gateways, the BARK Bot Payments API offers users a convenient and secure platform for purchasing, selling, and swapping BARK Tokens. This document will guide you through the features, architecture, and usage of the API, ensuring you have all the information needed to leverage its capabilities effectively.
 
@@ -24,8 +25,8 @@ BPT serves as the primary currency for transactions within the BARK Telegram Pay
 
 To install the BARK Bot Payments API, follow these steps:
 
-1. Clone the repository: `git clone https://github.com/BARKProtocol/BARK-Bot-Payments-API.git`
-2. Navigate to the project directory: `cd BARK-Bot-Payments-API`
+1. Clone the repository: `git clone https://github.com/bark-community/bark-Bot-payments-api.git`
+2. Navigate to the project directory: `cd bark-bot-Payments-api`
 3. Install dependencies: `npm install`
 4. Start the server: `npm start`
 
@@ -36,7 +37,7 @@ Once the server is running, you can access the API endpoints to perform various 
 - `/purchase`: Initiates a BARK Token purchase transaction.
 - `/sell`: Initiates a BARK Token sale transaction.
 - `/swap`: Initiates a token swapping transaction between BARK Tokens and other cryptocurrencies.
-- `/donate` : Donation and charitable features
+- `/donate`: Initiates a donation and charitable contribution transaction.
 - `/wallet`: Retrieves wallet balance and transaction history for a user.
 - `/market`: Retrieves real-time market data for BARK Tokens.
 
