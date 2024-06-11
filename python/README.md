@@ -1,4 +1,4 @@
-# BARK Bot
+# BARK Bot - Python
 
 ## Overview
 
@@ -19,8 +19,8 @@ BARK Bot is a Telegram bot designed to handle various financial transactions, in
 
 1. Clone the repository:
     ```sh
-    git clone https://github.com/your-repo/bark-bot.git
-    cd bark-bot
+    git clone https://github.com/bark-community/bark-payments-bot/python.git
+    cd bark-payments-bot && python
     ```
 
 2. Create a virtual environment and activate it:
@@ -39,7 +39,7 @@ BARK Bot is a Telegram bot designed to handle various financial transactions, in
     cp .env.example .env
     ```
 
-5. Update `config/settings.yaml` with your Telegram bot token.
+5. Update `config/settings.yaml` with BARK Telegram bot token.
 
 6. Run the application:
     ```sh
