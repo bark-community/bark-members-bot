@@ -19,16 +19,62 @@ The BARK Bot Payments API facilitates financial transactions within the Telegram
 
 ## BARK Protocol Token (Ticker: BPT)
 
-BPT serves as the primary currency for transactions within the BARK Telegram Payment Bot API. With BPT, users can seamlessly purchase goods and services, initiate transactions, and unlock a world of possibilities within the BARK Protocol's integration with the Telegram ecosystem. This enhances the utility of BPT and reinforces its value proposition as a versatile digital asset within the cryptocurrency space.
+BPT serves as the primary currency / Solana program for transactions within the BARK Telegram Payment Bot API. With BPT, users can seamlessly purchase goods and services, initiate transactions, and unlock a world of possibilities within the BARK Protocol's integration with the Telegram ecosystem. This enhances the utility of BPT and reinforces its value proposition as a versatile digital asset within the cryptocurrency space.
 
-## Installation
+## Installation Instructions
 
-To install the BARK Bot Payments API, follow these steps:
+To get started with using the BARK Bot Payments API, follow the steps below:
 
-1. Clone the repository: `git clone https://github.com/bark-community/bark-Bot-payments-api.git`
-2. Navigate to the project directory: `cd bark-bot-Payments-api`
-3. Install dependencies: `npm install`
-4. Start the server: `npm start`
+### 1. Clone the Repository
+
+Clone the GitHub repository to your local machine using the following command:
+
+```bash
+git clone https://github.com/bark-community/bark-bot-payments-api.git
+```
+
+### 2. Navigate to the Project Directory
+
+Navigate to the project directory using the `cd` command:
+
+```bash
+cd bark-Bot-payments-api
+```
+
+### 3. Install Dependencies
+
+Install the required dependencies by running the following command:
+
+```bash
+npm install
+```
+
+This command will install all the necessary Node.js packages specified in the `package.json` file.
+
+### 4. Configure Environment Variables
+
+Create a `.env` file in the root directory of your project and configure the following environment variables:
+
+```plaintext
+PORT=3000
+DB_URI=mongodb://localhost:27017/bark_bot_database
+```
+
+Replace the values as needed for your specific configuration.
+
+### 5. Start the Server
+
+Start the server by running the following command:
+
+```bash
+npm start
+```
+
+This will start the server at the specified port (default is 3000) and connect it to the MongoDB database using the provided URI.
+
+### 6. Test the Endpoints
+
+You can now test the API endpoints using tools like Postman or by making HTTP requests from BOT application.
 
 ### Usage & Example Endpoints:
 

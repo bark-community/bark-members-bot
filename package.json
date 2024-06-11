@@ -1,0 +1,12 @@
+{
+  "name": "bark-payments-bot",
+  "version": "1.0.0-alpha",
+  "description": "BARK Bot Payments API provides a seamless solution for conducting financial transactions within the Telegram messaging application. By integrating the power of the Solana blockchain and traditional payment gateways, the BARK Bot Payments API offers users a convenient and secure platform for purchasing, selling, and swapping BARK Tokens.",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [],
+  "author": "BARK Protocol",
+  "license": "MIT"
+}
