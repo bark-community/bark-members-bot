@@ -30,16 +30,31 @@ To install the BARK Bot Payments API, follow these steps:
 3. Install dependencies: `npm install`
 4. Start the server: `npm start`
 
-## Usage
+### Usage & Example Endpoints:
 
-Once the server is running, you can access the API endpoints to perform various transactions. Here are some example endpoints:
+#### Token Buy:
+- **Endpoint:** `/buy`
+- **Description:** Initiates a BARK Token purchase transaction using fiat currencies or other cryptocurrencies supported by the API, allowing users to acquire BARK Tokens.
 
-- `/purchase`: Initiates a BARK Token purchase transaction.
-- `/sell`: Initiates a BARK Token sale transaction.
-- `/swap`: Initiates a token swapping transaction between BARK Tokens and other cryptocurrencies.
-- `/donate`: Initiates a donation and charitable contribution transaction.
-- `/wallet`: Retrieves wallet balance and transaction history for a user.
-- `/market`: Retrieves real-time market data for BARK Tokens.
+#### Token Sale:
+- **Endpoint:** `/sell`
+- **Description:** Initiates a BARK Token sale transaction, allowing users to sell their BARK Tokens in exchange for fiat currencies or other cryptocurrencies.
+
+#### Token Swapping:
+- **Endpoint:** `/swap`
+- **Description:** Facilitates the exchange of BARK Tokens with other cryptocurrencies, providing users with flexibility and liquidity in managing their digital assets.
+
+#### Wallet Information:
+- **Endpoint:** `/wallet`
+- **Description:** Retrieves wallet balance, transaction history, and other relevant information for a user, providing insights into their current financial status.
+
+#### Market Data:
+- **Endpoint:** `/market`
+- **Description:** Retrieves real-time market data for BARK Tokens, including price charts, trading volume, and price change over time, empowering users to make informed investment decisions.
+
+#### Donate:
+- **Endpoint:** `/donate`
+- **Description:** Initiates a donation transaction, allowing users to contribute to charitable causes or support campaigns through the API.
 
 ## Contribution
 
@@ -47,7 +62,7 @@ Contributions are welcome! Feel free to open an issue or submit a pull request t
 
 ## References
 
-https://core.telegram.org/bots/payments#supported-payment-providers
+[Telegram Payments API Doc]:(https://core.telegram.org/bots/payments#supported-payment-providers)
 
 ## License
 
