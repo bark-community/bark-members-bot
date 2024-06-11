@@ -1,4 +1,4 @@
-python-telegram-bot==20.1
+python-telegram-bot[rate-limiter]==20.1
 openai==0.28.1
 tiktoken>=0.3.0
 PyYAML==6.0
@@ -11,4 +11,3 @@ redis>=4.0.2
 aioredis>=2.0.0
 pytz==2023.3
 anthropic
-tokenizer

@@ -1,3 +1,4 @@
 # Configuration settings
 telegram:
   token: 'BARK_TELEGRAM_BOT_TOKEN'
+  stripe_api_key: 'YOUR_STRIPE_API_KEY'
