@@ -1,195 +1,153 @@
-# BARK Bot | Telegram Payments API
-Proof of Concept
+# BARK Membership Payments Bot
 
-Welcome to the BARK Bot Payments API documentation! This API provides a seamless solution for conducting financial transactions within the Telegram messaging application. By integrating the power of the Solana blockchain and traditional payment gateways, the BARK Bot Payments API offers users a convenient and secure platform for purchasing, selling, and swapping BARK Tokens. This document will guide you through the features, architecture, and usage of the API, ensuring you have all the information needed to leverage its capabilities effectively.
+## Table of Contents
 
-## Overview
+1. [Introduction](#introduction)
+2. [Features](#features)
+3. [Requirements](#requirements)
+4. [Installation](#installation)
+5. [Configuration](#configuration)
+6. [Running the Bot](#running-the-bot)
+7. [Usage](#usage)
+8. [Folder Structure](#folder-structure)
+9. [Code Overview](#code-overview)
+    - [Configuration](#configuration)
+    - [Handlers](#handlers)
+    - [Utils](#utils)
+    - [Main](#main)
+10. [License](#license)
 
-The BARK Bot Payments API facilitates financial transactions within the Telegram ecosystem, enabling users to seamlessly interact with BARK Tokens. By combining the efficiency of blockchain technology with traditional payment gateways, our API offers a versatile solution for conducting transactions, whether it's purchasing goods and services, initiating swaps, or engaging in charitable donations. With BARK Protocol Token (BPT) as the primary currency, users can unlock a myriad of possibilities within the Telegram ecosystem, enhancing accessibility and utility.
+## Introduction
+
+The BARK Payments Bot is a Telegram bot that facilitates the creation of paid Telegram groups where users can charge for access using SOL (Solana), BARK, and CNFT (Cardano Non-Fungible Token) payments. This bot provides a streamlined solution for creators to monetize content and services on the Telegram platform.
 
 ## Features
 
-1. **Token Purchase / Buy:** Users can purchase BARK Tokens using fiat currencies or other cryptocurrencies supported by the API.
-   
-2. **Token Sale:** Users can sell their BARK Tokens in exchange for fiat currencies or other cryptocurrencies.
+- **Easy Payment Verification:** Supports payment verification using SOL, BARK, and CNFT tokens.
+- **Automated Group Management:** Automatically adds users to Telegram groups upon successful payments or token ownership.
+- **Customizable Settings:** Allows configuration of payment amounts, wallet addresses, and CNFT token IDs for tiered access.
 
-3. **Donate:** Users can make donations or contribute to charitable causes directly through the API.
+## Requirements
 
-4. **Payments for Physical Products:** Integration with ecommerce platforms for purchasing physical goods and services using BARK Tokens.
+- Python 3.7+
+- Telegram Bot API token
+- Solana wallet address
+- BARK token address
+- CNFT token addresses
+- Telegram group chat IDs
 
-5. **Token Swapping:** Facilitates the exchange of BARK Tokens with other cryptocurrencies, providing users with flexibility and liquidity.
+## Installation
 
-6. **Real-Time Updates:** Users receive real-time updates on their transactions, including confirmation messages and status notifications.
+1. **Clone the repository:**
 
-7. **Wallet Management:** Users can view their wallet balance, transaction history, and other relevant information directly through the Telegram interface.
+    ```sh
+    git clone https://github.com/yourusername/bark_payments_bot.git
+    cd bark_payments_bot
+    ```
 
-8. **Market Analysis:** Users have access to real-time market data for BARK Tokens, including price charts, trading volume, and price change over time, empowering them to make informed investment decisions.
+2. **Install the dependencies:**
 
-9. **Improved Security:** Enhanced security measures to protect user data, prevent unauthorized access, and secure transactions.
+    ```sh
+    pip install -r requirements.txt
+    ```
 
-10. **Seamless Integration:** Easy integration with existing Telegram bots, allowing developers to add payment functionality seamlessly.
+## Configuration
 
-11. **Scalability:** Designed to handle large transaction volumes and support a growing user base without compromising performance.
+Edit the `config/settings.py` file with your bot token, wallet addresses, payment amounts, CNFT token IDs, and Telegram group chat IDs.
 
-12. **Customization:** Flexible customization options to tailor the payment experience to the specific needs of each bot or business.
+Example `settings.py`:
 
-## BARK Protocol Token (Ticker: BPT)
-
-BPT serves as the primary currency / Solana program for transactions within the BARK Telegram Payment Bot API. With BPT, users can seamlessly purchase goods and services, initiate transactions, and unlock a world of possibilities within the BARK Protocol's integration with the Telegram ecosystem. This enhances the utility of BPT and reinforces its value proposition as a versatile digital asset within the cryptocurrency space.
-
-## Reguirements:
-
-- Telegram BOT: To start accepting payments, you need a Telegram bot. Use @BotFather to create a bot if you don't have one already. Named bot @merchantbot.
-
-## Installation Instructions
-
-To get started with using the BARK Bot Payments API, follow the steps below:
-
-### 1. Clone the Repository
-
-Clone the GitHub repository to your local machine using the following command:
-
-```bash
-git clone https://github.com/bark-community/bark-bot-payments-api.git
+```python
+TOKEN = 'YOUR_TELEGRAM_BOT_TOKEN'
+SOL_WALLET_ADDRESS = 'YOUR_SOL_WALLET_ADDRESS'
+BARK_WALLET_ADDRESS = 'BARK1X2VgwF1auwH6NzwLgXcAuMzrGnfsssAxaMczJLV'
+SOL_PAYMENT_AMOUNT = 1  # Amount in SOL required to join
+BARK_PAYMENT_AMOUNT = 100000  # Amount in BARK required to join
+CNFT_PROSPECT_TIER_TOKEN = 'PROSPECT_TOKEN_ID'
+CNFT_FULL_MEMBER_TIER_TOKEN = 'FULL_MEMBER_TOKEN_ID'
+CNFT_VETERAN_MEMBER_TIER_TOKEN = 'VETERAN_TOKEN_ID'
+CNFT_SOLDIER_TIER_TOKEN = 'SOLDIER_TOKEN_ID'
+THE_PEAKY_BARKERS_CLUB_CHAT_ID = 'YOUR_CLUB_GROUP_CHAT_ID'
+THE_PEAKY_BARKERS_CHAT_ID = 'YOUR_BARKERS_CHAT_ID'
+BARKERS_PROSPECT_GROUP_CHAT_ID = 'YOUR_PROSPECT_GROUP_CHAT_ID'
+BARKERS_FULL_MEMBER_GROUP_CHAT_ID = 'YOUR_FULL_MEMBER_GROUP_CHAT_ID'
+BARKERS_VETERAN_GROUP_CHAT_ID = 'YOUR_VETERAN_GROUP_CHAT_ID'
+BARKERS_SOLDIER_GROUP_CHAT_ID = 'YOUR_SOLDIER_GROUP_CHAT_ID'
 ```
 
-### 2. Navigate to the Project Directory
+## Running the Bot
 
-Navigate to the project directory using the `cd` command:
+To start the bot, simply run:
 
-```bash
-cd bark-Bot-payments-api
+```sh
+python main.py
 ```
 
-### 3. Install Dependencies
+## Usage
 
-Install the required dependencies by running the following command:
+Users can join the paid group by sending the `/join <wallet_address>` command to the bot.
 
-```bash
-npm install
-```
-
-This command will install all the necessary Node.js packages specified in the `package.json` file.
-
-### 4. Configure Environment Variables
-
-Create a `.env` file in the root directory of your project and configure the following environment variables:
-
-```plaintext
-PORT=3000
-DB_URI=mongodb://localhost:27017/bark_bot_database
-```
-
-Replace the values as needed for your specific configuration.
-
-### 5. Start the Server
-
-Start the server by running the following command:
-
-```bash
-npm start
-```
-
-This will start the server at the specified port (default is 3000) and connect it to the MongoDB database using the provided URI.
-
-### 6. Test the Endpoints
-
-You can now test the API endpoints using tools like Postman or by making HTTP requests from BOT application.
-
-## Folder and file structure for Python project:
+Example:
 
 ```
-python/
-│
-├── bark-bot/
-│   ├── __init__.py
-│   ├── bot.py            # Main bot logic
-│   └── commands.py       # Bot commands
-│
+/join 5Q2sjk4F4q6a8H6Ryw24mjeHD2Uo1tRAz5Fd3VL9y2Qz
+```
+
+## Folder Structure
+
+```
+bark_payments_bot/
 ├── config/
 │   ├── __init__.py
-│   └── settings.yaml     # Configuration settings
-│
-├── data/
-│   └── db.sqlite         # SQLite database file
-│
-├── payments/
+│   ├── settings.py
+├── handlers/
 │   ├── __init__.py
-│   ├── payment_processor.py  # Payment processing logic
-│   └── payment_gateway.py    # Payment gateway integration
-│
+│   ├── join_group.py
+│   ├── payment_verification.py
 ├── utils/
 │   ├── __init__.py
-│   └── helpers.py        # Helper functions
-│
-├── .env                  # Environment variables
-├── requirements.txt      # Dependency requirements
-├── README.md             # Project documentation
-└── main.py               # Entry point of the application
+│   ├── solana_utils.py
+│   ├── bark_utils.py
+│   ├── cnft_utils.py
+├── main.py
+├── requirements.txt
+├── README.md
 ```
 
-### A brief description of each directory and file:
+## Code Overview
 
-- **bot/**: Contains modules related to the Telegram bot.
-  - **bot.py**: Main bot logic.
-  - **commands.py**: Bot commands definition.
-  
-- **config/**: Contains configuration settings.
-  - **settings.yaml**: YAML file for storing configuration settings.
-  
-- **data/**: Contains data files, such as databases.
-  - **db.sqlite**: SQLite database file for storing application data.
-  
-- **payments/**: Contains modules related to payment processing.
-  - **payment_processor.py**: Logic for processing payments.
-  - **payment_gateway.py**: Integration with payment gateways.
-  
-- **utils/**: Contains utility functions used across the project.
-  - **helpers.py**: Helper functions that can be reused.
+### Configuration
 
-- **.env**: Environment variables file for storing sensitive information like API keys and tokens.
-  
-- **requirements.txt**: File listing all the Python dependencies required by the project.
+**config/settings.py**
 
-- **README.md**: Documentation file containing information about the project, how to use it, and any other relevant details.
+This file contains configuration variables like the bot token, wallet addresses, payment amounts, CNFT token IDs, and Telegram group chat IDs.
 
-- **main.py**: Entry point of the application, where you can initialize and run your bot.
+### Handlers
 
+**handlers/join_group.py**
 
-### Usage & Example Endpoints:
+This file contains the handler function for the `/join` command. It checks for SOL, BARK, and CNFT payments or token ownership and adds the user to the respective groups.
 
-#### Token Buy:
-- **Endpoint:** `/buy`
-- **Description:** Initiates a BARK Token purchase transaction using fiat currencies or other cryptocurrencies supported by the API, allowing users to acquire BARK Tokens.
+### Utils
 
-#### Token Sale:
-- **Endpoint:** `/sell`
-- **Description:** Initiates a BARK Token sale transaction, allowing users to sell their BARK Tokens in exchange for fiat currencies or other cryptocurrencies.
+**utils/solana_utils.py**
 
-#### Token Swapping:
-- **Endpoint:** `/swap`
-- **Description:** Facilitates the exchange of BARK Tokens with other cryptocurrencies, providing users with flexibility and liquidity in managing their digital assets.
+This file contains functions to interact with the Solana blockchain, such as checking SOL payments.
 
-#### Wallet Information:
-- **Endpoint:** `/wallet`
-- **Description:** Retrieves wallet balance, transaction history, and other relevant information for a user, providing insights into their current financial status.
+**utils/bark_utils.py**
 
-#### Market Data:
-- **Endpoint:** `/market`
-- **Description:** Retrieves real-time market data for BARK Tokens, including price charts, trading volume, and price change over time, empowering users to make informed investment decisions.
+This file contains functions to interact with the BARK token, such as checking BARK payments.
 
-#### Donate:
-- **Endpoint:** `/donate`
-- **Description:** Initiates a donation transaction, allowing users to contribute to charitable causes or support campaigns through the API.
+**utils/cnft_utils.py**
 
-## Contribution
+This file contains functions to interact with CNFT tokens, such as checking CNFT token ownership.
 
-Contributions are welcome! Feel free to open an issue or submit a pull request to suggest improvements or report bugs.
+### Main
 
-## References
+**main.py**
 
-[Telegram Payments API Doc]:(https://core.telegram.org/bots/payments#supported-payment-providers)
+This is the main entry point of the bot. It initializes the bot, registers handlers, and starts polling.
 
 ## License
 
-This project is licensed under the MIT License - see the [LICENSE](LICENSE) file for details.
+This project is licensed under the MIT License.
