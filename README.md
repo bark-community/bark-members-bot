@@ -1,4 +1,4 @@
-# BARK Membership Payments Bot
+# BARK Membership Payments Bot - Example
 
 ## Table of Contents
 
@@ -19,7 +19,7 @@
 
 ## Introduction
 
-The BARK Membership Payments Bot is a Telegram bot that facilitates the creation of paid Telegram groups where users can charge for access using SOL (Solana), BARK, and CNFT (Solana Non-Fungible Token) payments. This bot provides a streamlined solution for creators to monetize content and services on the Telegram platform.
+The BARK Membership Payments Bot is a Telegram bot designed to facilitate the creation of paid Telegram groups where users can charge for access using SOL (Solana), BARK, and CNFT (Cardano Non-Fungible Token) payments. This bot provides a streamlined solution for creators to monetize content and services on the Telegram platform.
 
 ## Features
 
@@ -41,8 +41,8 @@ The BARK Membership Payments Bot is a Telegram bot that facilitates the creation
 1. **Clone the repository:**
 
     ```sh
-    git clone https://github.com/bark-community/bark_membership_payments_bot.git
-    cd bark_membership_payments_bot
+    git clone https://github.com/bark-community/bark_payments_bot.git
+    cd bark_payments_bot
     ```
 
 2. **Install the dependencies:**
@@ -128,6 +128,10 @@ This file contains configuration variables like the bot token, wallet addresses,
 
 This file contains the handler function for the `/join` command. It checks for SOL, BARK, and CNFT payments or token ownership and adds the user to the respective groups.
 
+**handlers/payment_verification.py**
+
+This file contains functions for verifying SOL and BARK payments.
+
 ### Utils
 
 **utils/solana_utils.py**
@@ -150,4 +154,4 @@ This is the main entry point of the bot. It initializes the bot, registers handl
 
 ## License
 
-This project is licensed under the MIT License.
+MIT License.
