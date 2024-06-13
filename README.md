@@ -29,7 +29,7 @@ The BARK Membership Payments Bot is a Telegram bot designed to facilitate the cr
 
 ## Requirements
 
-- Python 3.7+
+- Python 3.12+
 - Telegram Bot API token
 - Solana wallet address
 - BARK token address
